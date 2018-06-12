@@ -10,10 +10,10 @@ That's a modified version that I made oriented for web languages. Features:
 
 For using it copy the content in /loader into you destination folder (run_prettify.js, prettify.js, prettify.css), add the languages you want to use, add /loader/skins folder with monokai.css theme.
 
-Add a <pre class="prettyprint lang-[language]"></pre>.
+Add a &lt;pre class="prettyprint lang-[language]"&gt;&lt;/pre&gt;.
 
 Add at the end:
-  <script type="text/javascript" src="/inc/js/code-prettify/run_prettify.js?skin=monokai&amp;lang=php"></script>
+  &lt;script type="text/javascript" src="/inc/js/code-prettify/run_prettify.js?skin=monokai&amp;lang=php"&gt;&lt;/script&gt;
   
 That is! Thanks for using it and please report bugs or improvements.
 
