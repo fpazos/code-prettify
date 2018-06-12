@@ -1,3 +1,23 @@
+## Modified version by FPazos
+
+That's a modified version that I made oriented for web languages. Features:
+
+* Intended for working locally on the server
+* Improved support for web languages (mainly to match Monokai theme): js, php, css.
+* Added php support
+* Modified to match Monokai theme of Sublime Text 3, which for me it's the best code highlight ever
+* Modified for loading language definitions using classes instead of get parameters in the url
+
+For using it copy the content in /loader into you destination folder (run_prettify.js, prettify.js, prettify.css), add the languages you want to use, add /loader/skins folder with monokai.css theme.
+
+Add a <pre class="prettyprint lang-[language]"></pre>.
+
+Add at the end:
+  <script type="text/javascript" src="/inc/js/code-prettify/run_prettify.js?skin=monokai&amp;lang=php"></script>
+  
+That is! Thanks for using it and please report bugs or improvements.
+
+
 # JavaScript code prettifier
 
 An embeddable script that makes source-code snippets in HTML prettier.
