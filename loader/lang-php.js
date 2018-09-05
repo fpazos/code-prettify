@@ -19,17 +19,21 @@ PR.registerLangHandler(
       ],
       [
       [PR.PR_KEYWORD,
-      /^\b(and|or|xor|__FILE__|exception|__LINE__|array|as|break|case|class|const|continue|declare|default|die|do|echo|else|elseif|empty|enddeclare|endfor|endforeach|endif|endswitch|endwhild|eval|exit|extends|for|foreach|function|global|if|include|include_once|isset|list|new|print|require|require_once|return|static|switch|unset|use|var|while|__FUNCTION__|__CLASS__|__METHOD__|final|php_user_filter|interface|implements|instanceof|public|private|protected|abstract|clone|try|catch|throw|cfunction|old_function|this|final|__NAMESPACE__|namespace|goto|__DIR__|true|false|null|TRUE|FALSE|NULL)\b/i,
+      /^\b(and|or|xor|__FILE__|exception|__LINE__|as|break|case|class|const|continue|declare|default|die|do|echo|else|elseif|enddeclare|endfor|endforeach|endif|endswitch|endwhild|eval|exit|extends|for|foreach|global|if|include|include_once|list|new|print|require|require_once|return|static|switch|unset|use|var|while|__FUNCTION__|__CLASS__|__METHOD__|final|php_user_filter|interface|implements|instanceof|public|private|protected|abstract|clone|try|catch|throw|cfunction|old_function|this|final|__NAMESPACE__|namespace|goto|__DIR__)\b/i,
       null],
       [PR.PR_VARIABLE, /^\$[\w0-9\_]+/, null],
-      // Eliminamos como puntuacion;,[]{}()\/ y las vocales acentuadas que no sé por qué también las marcaba
-      [PR.PR_PUNCTUATION, /^[^\s\w\'\"\;\,\[\]\{\}\(\)\\\/\í\ó\á\é\ú\.]/, null , /\r\n\t\u00a0/],
-      // Funciones
-      [PR.PR_FUNCTION, /(?:[\_]*[A-Za-z_$@0-9]+|\w+)(?:\()/, null],
-
+      // Eliminamos como puntuacion;,[]{}()\/ y las vocales acentuadas que no sé por qué también las marcaba, las dos expresiones funcionan parecido, la superior por negación y la inferior por coincidencia
+      [PR.PR_PUNCTUATION, /^[^\s\w\'\"\;\,\[\]\{\}\(\)\\\/\í\ó\á\é\ú]/, null , /\r\n\t\u00a0/],
+      //[PR.PR_PUNCTUATION, /=>|==|=|\!=|\!==|\<=|\>=|&&|\|\||\<|\>/, null , /\r\n\t\u00a0\-\>/],
 
       [PR.PR_COMMENT, /^\/\/[^\r\n]*/, null],
       [PR.PR_COMMENT, /^\/\*[\s\S]*?(?:\*\/|$)/, null],
+      // Funciones
+      [PR.PR_FUNCTION, /(?:[\_]*[A-Za-z_$@0-9]+|\w+)(?:\()/, null],
+      [PR.PR_FUNCTION, /(?:function)|(?:array)/, null],
+
+      // True,false y null como literales
+      [PR.PR_LITERAL, /true|false|null|TRUE|FALSE|NULL/, null],
 
       [PR.PR_LITERAL,
       new RegExp(
